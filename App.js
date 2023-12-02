@@ -5,6 +5,7 @@ import Navigation from './NativeStack';
 export default function App() {
   return (
     <>
+      <StatusBar style="light" />
       <Navigation />
     </>
   );

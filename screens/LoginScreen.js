@@ -14,7 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 WebBrowser.maybeCompleteAuthSession();
 
 import SignInButton from '../components/SigninButton';
-import OutlineButton from '../components/UI/OutlineButton';
+import OutlineButton from '../components/UI/Buttons/OutlineButton';
 
 const discovery = {
   authorizationEndpoint: 'https://accounts.spotify.com/authorize',
@@ -137,7 +137,7 @@ const LoginScreen = ({ navigation }) => {
           style={styles.iconStyle}
           name="spotify"
           size={80}
-          color="white"
+          color="#1BB954"
         />
         <Text style={styles.title}>Millions of Songs Free on spotify!</Text>
         <View style={styles.topView} />

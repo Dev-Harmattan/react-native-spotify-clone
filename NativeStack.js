@@ -41,7 +41,7 @@ const BottomTabs = () => {
             focused ? (
               <Ionicons name="home" size={24} color="white" />
             ) : (
-              <Ionicons name="home-outline" size={24} color="black" />
+              <Ionicons name="home-outline" size={24} color="white" />
             ),
         }}
       />
@@ -54,7 +54,7 @@ const BottomTabs = () => {
             focused ? (
               <Ionicons name="person" size={24} color="white" />
             ) : (
-              <Ionicons name="person-outline" size={24} color="black" />
+              <Ionicons name="person-outline" size={24} color="white" />
             ),
         }}
       />
