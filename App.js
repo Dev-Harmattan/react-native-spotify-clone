@@ -1,12 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Navigation from './NativeStack';
+import { PlayerProvider } from './PlayerContext';
 
 export default function App() {
   return (
     <>
       <StatusBar style="light" />
-      <Navigation />
+      <PlayerProvider>
+        <Navigation />
+      </PlayerProvider>
     </>
   );
 }

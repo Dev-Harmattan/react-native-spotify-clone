@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import LoginScreen from './screens/LoginScreen';
+import LikedSongsScreen from './screens/LikedSongsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -79,6 +80,11 @@ const Navigation = () => {
           options={{
             headerShown: false,
           }}
+        />
+        <Stack.Screen
+          name="Liked"
+          options={{ headerShown: false }}
+          component={LikedSongsScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

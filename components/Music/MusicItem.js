@@ -2,17 +2,23 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import LikedButton from './LikedButton';
 
-const MusicItem = ({ type, title, source }) => {
+const MusicItem = ({ type, title, source, onPress }) => {
   return (
-    <View style={styles.itemContainer}>
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.itemContainer,
+        pressed && { opacity: 0.8 },
+      ]}
+    >
       {type === 'icon' && <LikedButton />}
       {type === 'image' && (
         <Image style={styles.image} source={{ uri: source }} />
       )}
-      <Text style={styles.text} numberOfLines={2} >
+      <Text style={styles.text} numberOfLines={2}>
         {title}
       </Text>
-    </View>
+    </Pressable>
   );
 };
 
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 13,
     fontWeight: 'bold',
-    flex : 1,
+    flex: 1,
   },
   image: {
     width: 55,

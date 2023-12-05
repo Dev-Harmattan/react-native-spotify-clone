@@ -18,7 +18,7 @@ import TopArtist from '../components/Music/TopArtistItem';
 import Title from '../components/UI/Title';
 import RecentlyPlayedItem from '../components/Music/RecentlyPlayedItem';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [profile, setProfile] = useState();
   const [recentlyPlayed, setRecentlyPlayed] = useState([]);
   const [topArtist, setTopArtist] = useState([]);
@@ -110,7 +110,11 @@ const HomeScreen = () => {
           <RoundedButton>Podcasts & shows</RoundedButton>
         </View>
         <View style={styles.musicItemContainer}>
-          <MusicItem type="icon" title="Liked Songs" />
+          <MusicItem
+            onPress={() => navigation.navigate('Liked')}
+            type="icon"
+            title="Liked Songs"
+          />
           <MusicItem
             type="image"
             source="https://i.pravatar.cc/100"
