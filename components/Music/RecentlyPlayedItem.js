@@ -1,9 +1,18 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const RecentlyPlayedItem = ({ item }) => {
+  const navigation = useNavigation();
   return (
-    <Pressable style={styles.recentlyPlayedContainer}>
+    <Pressable
+      style={styles.recentlyPlayedContainer}
+      onPress={() =>
+        navigation.navigate('Info', {
+          item: item,
+        })
+      }
+    >
       <Image
         style={styles.image}
         source={{ uri: item?.track.album.images[0]?.url }}

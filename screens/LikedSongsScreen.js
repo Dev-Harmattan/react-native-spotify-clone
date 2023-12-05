@@ -83,7 +83,6 @@ const LikedSongsScreen = () => {
         },
         onPlayBackStatusUpdate
       );
-      console.log('Sounds: ', status);
       setCurrentSong(sound);
       onPlayBackStatusUpdate(status);
       await sound.playAsync();
@@ -96,7 +95,6 @@ const LikedSongsScreen = () => {
   const onPlayBackStatusUpdate = async (status) => {
     if (status?.isLoaded && status?.isPlaying) {
       const progress = status.positionMillis / status.durationMillis;
-      console.log(progress);
       setProgress(progress);
       setCurrentTime(status.positionMillis);
       setTotalDuration(status.durationMillis);

@@ -7,6 +7,7 @@ import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import LoginScreen from './screens/LoginScreen';
 import LikedSongsScreen from './screens/LikedSongsScreen';
+import SongInfoScreen from './screens/SongInfoScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -85,6 +86,11 @@ const Navigation = () => {
           name="Liked"
           options={{ headerShown: false }}
           component={LikedSongsScreen}
+        />
+        <Stack.Screen
+          name="Info"
+          options={{ headerShown: false }}
+          component={SongInfoScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

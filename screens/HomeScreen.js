@@ -53,7 +53,6 @@ const HomeScreen = ({ navigation }) => {
     }
   };
 
-  console.log(topArtist);
 
   const getTopArtist = async () => {
     try {
