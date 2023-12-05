@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as WebBrowser from 'expo-web-browser';
@@ -33,6 +33,7 @@ const scopes = [
 ];
 
 const LoginScreen = ({ navigation }) => {
+  const [isLoading, setIsLoading] = useState();
   const [request, response, promptAsync] = useAuthRequest(
     {
       clientId: process.env.EXPO_PUBLIC_SPOTIFY_CLIENT_ID,
@@ -81,6 +82,8 @@ const LoginScreen = ({ navigation }) => {
         } catch (error) {
           console.log(error);
           navigation.navigate('Login');
+        } finally {
+          setIsLoading(false);
         }
       };
       authorization();
@@ -142,9 +145,10 @@ const LoginScreen = ({ navigation }) => {
         <Text style={styles.title}>Millions of Songs Free on spotify!</Text>
         <View style={styles.topView} />
         <SignInButton
-          disable={!request}
+          disable={!request || isLoading}
           onPress={() => {
             promptAsync();
+            setIsLoading(true);
           }}
         />
         <OutlineButton

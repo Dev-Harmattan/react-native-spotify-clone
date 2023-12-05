@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   FlatList,
   Image,
   Pressable,
@@ -34,6 +35,7 @@ const LikedSongsScreen = () => {
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
+  const [filteredTracks, setFilteredTracks] = useState([]);
   const { currentTrack, setCurrentTrack } = useContext(PlayerContext);
   const songRef = useRef(0);
   const getUserSaveTracks = async () => {
@@ -65,8 +67,8 @@ const LikedSongsScreen = () => {
   const play = async (newTrack) => {
     const preview_url = newTrack?.track?.preview_url;
     try {
-      if(currentSong){
-        await currentSong.stopAsync()
+      if (currentSong) {
+        await currentSong.stopAsync();
       }
       await Audio.setAudioModeAsync({
         playsInSilentModeIOS: true,
@@ -152,6 +154,11 @@ const LikedSongsScreen = () => {
     }
   };
 
+  const handleSearch = (searchResults) => {
+    setFilteredTracks(searchResults);
+    console.log(searchResults);
+  };
+
   useEffect(() => {
     getUserSaveTracks();
   }, []);
@@ -171,7 +178,7 @@ const LikedSongsScreen = () => {
             <Ionicons name="arrow-back" size={24} color="white" />
           </Pressable>
 
-          <Search />
+          <Search onPress={handleSearch} tracks={savedTracks} />
           <View style={{ marginTop: 50 }} />
           <View style={styles.titleContainer}>
             <Text style={styles.title}>Liked Songs</Text>
@@ -196,18 +203,22 @@ const LikedSongsScreen = () => {
               </Pressable>
             </View>
           </Pressable>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={savedTracks}
-            renderItem={({ item, index }) => (
-              <SongItem
-                item={item}
-                key={index}
-                onPress={play}
-                isPlaying={item === currentTrack}
-              />
-            )}
-          />
+          {filteredTracks.length === 0 ? (
+            <ActivityIndicator size="large" colors="gray" />
+          ) : (
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              data={filteredTracks}
+              renderItem={({ item, index }) => (
+                <SongItem
+                  item={item}
+                  key={index}
+                  onPress={play}
+                  isPlaying={item === currentTrack}
+                />
+              )}
+            />
+          )}
         </ScrollView>
       </LinearGradient>
       {currentTrack && (

@@ -22,6 +22,7 @@
     "expo-linking": "~5.0.2",
     "expo-status-bar": "~1.6.0",
     "expo-web-browser": "^12.5.0",
+    "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-native": "0.72.6",
     "react-native-extra-dimensions-android": "^1.2.5",
