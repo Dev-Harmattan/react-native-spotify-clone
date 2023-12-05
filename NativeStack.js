@@ -92,6 +92,11 @@ const Navigation = () => {
           options={{ headerShown: false }}
           component={SongInfoScreen}
         />
+        {/* <Stack.Screen
+          name="Profile"
+          options={{ headerShown: false }}
+          component={ProfileScreen}
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

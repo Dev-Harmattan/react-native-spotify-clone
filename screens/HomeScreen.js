@@ -53,7 +53,6 @@ const HomeScreen = ({ navigation }) => {
     }
   };
 
-
   const getTopArtist = async () => {
     try {
       const accessToken = await AsyncStorage.getItem('access_token');
@@ -95,7 +94,10 @@ const HomeScreen = ({ navigation }) => {
       <ScrollView style={{ marginVertical: 80 }}>
         <View style={styles.profileContainer}>
           <View style={styles.profileImageContainer}>
-            <Image style={styles.profileImage} source={imageSource} />
+            <Image
+              style={styles.profileImage}
+              source={imageSource}
+            />
             <Text style={styles.greetingTitle}>{getMessage()}</Text>
           </View>
           <MaterialCommunityIcons
