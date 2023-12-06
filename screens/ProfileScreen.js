@@ -47,7 +47,6 @@ const ProfileScreen = () => {
       console.log(error);
     }
   };
-  console.log(playlists);
   return (
     <LinearGradient colors={['#040306', '#131624']} style={{ flex: 1 }}>
       <ScrollView style={{ marginTop: 50 }}>

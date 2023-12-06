@@ -109,7 +109,6 @@ const LikedSongsScreen = () => {
   };
 
   const formatTime = (time) => {
-    console.log('Time: ', time);
     const minutes = Math.floor(time / 60000);
     const seconds = Math.floor((time % 60000) / 1000);
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
@@ -156,7 +155,6 @@ const LikedSongsScreen = () => {
 
   const handleSearch = (searchResults) => {
     setFilteredTracks(searchResults);
-    console.log(searchResults);
   };
 
   useEffect(() => {
